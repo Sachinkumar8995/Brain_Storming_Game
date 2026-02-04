@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.heading {
+  color: #efc745;
+}
+
+/* GRID */
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* CARD */
+.box {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* INNER FACES */
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* FRONT */
+.front {
+  background-color: teal;
+}
+
+/* BACK */
+.back {
+  background-color: #efc745;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotateY(180deg);
+}
+
+/* FLIP EFFECT */
+.box.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.box.flipped .back {
+  transform: rotateY(360deg);
+}
+
+/* MATCHED (optional) */
+.box.matched {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+
+/* WIN OVERLAY */
+#win-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+
+#win-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#win-overlay h2 {
+  color: #efc745;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: pop 0.6s ease;
+}
+
+#win-overlay button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: teal;
+  color: white;
+}
+
+/* POP ANIMATION */
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
