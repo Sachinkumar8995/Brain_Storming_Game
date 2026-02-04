@@ -1,3 +1,48 @@
+/* =======================
+   MOBILE RESPONSIVE CSS
+   ======================= */
+
+/* Small phones */
+@media (max-width: 480px) {
+  body {
+    padding-top: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  #container {
+    gap: 15px;
+    max-width: 360px;
+  }
+
+  .box {
+    perspective: 800px;
+  }
+
+  .back {
+    background-size: 70%;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  #container {
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .back {
+    background-size: 75%;
+  }
+}
+
+
 * {
   margin: 0;
   padding: 0;
